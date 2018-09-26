@@ -19,7 +19,6 @@
                <version>1.6</version>
                <executions>
                    <!-- Install our node and npm version to run npm/node scripts-->
-                   <!--
                    <execution>
                        <id>install node and npm</id>
                        <goals>
@@ -32,7 +31,6 @@
                            <npmDownloadRoot>http://registry.npmjs.org/npm/-/</npmDownloadRoot>
                        </configuration>
                    </execution>
-                 -->
 
                    <!-- Set NPM Registry -->
                    <execution>

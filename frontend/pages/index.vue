@@ -4,8 +4,9 @@
       <v-flex xs12 sm8 md6>
         <v-card>
           <v-card-title primary-title>
-            <v-toolbar color="indigo" dark>
-              <v-toolbar-title>CHATROOM-TITLE</v-toolbar-title>
+            <v-toolbar dark
+              color="indigo">
+              <v-toolbar-title>CODE</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn icon>
                 <v-icon>search</v-icon>
@@ -34,12 +35,14 @@
             class="scroll-y"
             style="max-height: 300px"
           >
-            <v-layout
-              column
-              align-center
-              justify-center
+            <v-layout column
               style="height: 1000px"
             >
+              <p
+                v-for="msg in messages"
+              >
+                {{ msg }}
+              </p>
             </v-layout>
           </v-card-text>
           <v-card-actions>
@@ -53,9 +56,20 @@
 
 <script>
   import ZMessageSender from '~/components/ZMessageSender.vue'
+  import { mapState } from 'vuex'
+
   export default {
+    computed: {
+      ...mapState('chat', [
+        'messages'
+      ])
+    },
     components: {
       'z-message-sender': ZMessageSender
+    },
+    methods: {
+    },
+    mounted () {
     }
   }
 </script>
