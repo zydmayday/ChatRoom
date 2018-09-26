@@ -1,6 +1,6 @@
 server:
   port: 5678
-  contextPath: /summer
+# servlet.contextPath: /summer
 #spring:
 #  profiles: local,default
 #datasource:

@@ -10,7 +10,9 @@
       ></v-textarea>
     </v-flex>
     <v-flex md1>
-      <v-btn color="info">Info</v-btn>
+      <v-btn 
+        color="info"
+        @click="send">Info</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -18,7 +20,7 @@
 <script>
   import SockJS from 'sockjs-client'
   import Stomp from 'webstomp-client'
-  import { mapActions, mapMutations } from 'vuex'
+  import { mapMutations } from 'vuex'
   import { mapFields } from 'vuex-map-fields'
 
   export default {
@@ -28,9 +30,6 @@
       ])
     },
     methods: {
-      ...mapActions('chat', [
-        'send'
-      ]),
       ...mapMutations({
         addMessage: 'chat/addMessage'
       }),
@@ -44,14 +43,17 @@
       connect () {
         this.socket = new SockJS('http://localhost:5678/summer-talk')
         this.stompClient = Stomp.over(this.socket)
+        const that = this
         this.stompClient.connect(
           {},
-          frame => {
+          function (frame) {
             console.log(frame)
-            this.stompClient.subscribe('/topic/nonsense', tick => {
+            that.stompClient.subscribe('/topic/nonsense', function (tick) {
               console.log(tick)
-              this.received_messages.push(JSON.parse(tick.body).content)
-              this.addMessage(tick)
+              // this.received_messages.push(JSON.parse(tick.body).content)
+              that.addMessage({
+                newMessage: tick
+              })
             })
           },
           error => {

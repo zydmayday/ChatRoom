@@ -56,7 +56,7 @@
 
 <script>
   import ZMessageSender from '~/components/ZMessageSender.vue'
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
 
   export default {
     computed: {
@@ -68,8 +68,14 @@
       'z-message-sender': ZMessageSender
     },
     methods: {
+      ...mapMutations('chat', [
+        'addMessage'
+      ])
     },
     mounted () {
+      this.addMessage({
+        newMessage: 'adfs'
+      })
     }
   }
 </script>
