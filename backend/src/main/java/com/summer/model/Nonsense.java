@@ -1,11 +1,11 @@
-package com.summer.config;
+package com.summer.model;
 
 public class Nonsense {
 	private String message;
 	
-	Nonsense() {}
+	public Nonsense() {}
 	
-	Nonsense(String message) {
+	public Nonsense(String message) {
 		this.message = message;
 	}
 	

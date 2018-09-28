@@ -1,18 +1,39 @@
 <!-- chatroom的内容发送框 -->
 <template>
-  <v-layout justify-end>
-    <v-flex md5>
-      <v-textarea
-        rows="1"
-        label="message"
-        v-model="sendMessage"
-        auto-grow outline
-      ></v-textarea>
+  <v-layout column fill-height>
+    <v-flex>
+      <v-card height="100%">
+        <v-toolbar color="indigo" dark>
+          <v-toolbar-title>CHATROOM-TITLE</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-card-text
+          class="scroll-y"
+        >
+        </v-card-text>
+        <v-card-actions>
+        </v-card-actions>
+      </v-card>
     </v-flex>
-    <v-flex md1>
-      <v-btn 
-        color="info"
-        @click="send">Info</v-btn>
+    <v-flex align-center xs1 class="sender">
+      <v-layout row fill-height>
+        <v-flex  xs9>
+          <v-textarea
+            rows="1"
+            label="message"
+            v-model="sendMessage"
+            auto-grow
+          ></v-textarea>
+        </v-flex>
+        <v-flex xs3>
+          <v-btn
+            color="info"
+            @click="send">Info</v-btn>
+          </v-flex>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
@@ -69,16 +90,5 @@
 </script>
 
 <style type="text/css">
-  .fixed {
-    position: fixed;
-  }
-  .bottom {
-    bottom: 10px;
-  }
-  .right {
-    right: 10px;
-  }
-  .message-sender {
-    width: 40%;
-  }
+  .sender {height: 0vh !important;}
 </style>

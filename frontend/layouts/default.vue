@@ -1,102 +1,107 @@
 <template>
-  <v-app>
-    <v-navigation-drawer
-      :mini-variant.sync="miniVariant"
-      :clipped="clipped"
-      :width="200"
-      v-model="drawer"
-      permanent
-      fixed
-      app
-    >
+<v-app
+  dark
+  id="inspire"
+>
+  <v-navigation-drawer
+    fixed
+    clipped
+    v-model="drawer"
+    app
+  >
+    <v-list dense>
+      <v-list-tile v-for="item in items" :key="item.text" @click="">
+        <v-list-tile-action>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>
+            {{ item.text }}
+          </v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-subheader class="mt-3 grey--text text--darken-1">SUBSCRIPTIONS</v-subheader>
       <v-list>
-        <v-list-tile
-          router
-          :to="item.to"
-          :key="i"
-          v-for="(item, i) in items"
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
+        <v-list-tile v-for="item in items2" :key="item.text" avatar @click="">
+          <v-list-tile-avatar>
+            <img :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`" alt="">
+          </v-list-tile-avatar>
+          <v-list-tile-title v-text="item.text"></v-list-tile-title>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
-    <v-toolbar fixed app :clipped-left="clipped">
-      <!-- <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon> -->
-      <!-- <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
- -->      <!-- <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn> -->
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <!-- <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn> -->
-    </v-toolbar>
-    <v-content>
-      <v-container fill-height>
-        <nuxt />
-      </v-container>
-    </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <!-- <v-footer fixed>
-      <span>&copy; 2017</span>
-    </v-footer> -->
-  </v-app>
+      <v-list-tile class="mt-3" @click="">
+        <v-list-tile-action>
+          <v-icon color="grey darken-1">add_circle_outline</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title class="grey--text text--darken-1">Browse Channels</v-list-tile-title>
+      </v-list-tile>
+      <v-list-tile @click="">
+        <v-list-tile-action>
+          <v-icon color="grey darken-1">settings</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title class="grey--text text--darken-1">Manage Subscriptions</v-list-tile-title>
+      </v-list-tile>
+    </v-list>
+  </v-navigation-drawer>
+  <v-toolbar
+    color="red"
+    dense
+    fixed
+    clipped-left
+    app
+  >
+    <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    <v-icon class="mx-3">fa-youtube</v-icon>
+    <v-toolbar-title class="mr-5 align-center">
+      <span class="title">Youtube</span>
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-layout row align-center style="max-width: 650px">
+      <v-text-field
+        placeholder="Search..."
+        single-line
+        append-icon="search"
+        :append-icon-cb="() => {}"
+        color="white"
+        hide-details
+      ></v-text-field>
+    </v-layout>
+  </v-toolbar>
+  <v-content class="main-content">
+    <v-container fill-height pa-0>
+      <nuxt />
+    </v-container>
+  </v-content>
+</v-app>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
-        ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'CHATROOM'
-      }
-    }
+export default {
+  data: () => ({
+    drawer: true,
+    items: [
+      { icon: 'trending_up', text: 'Most Popular' },
+      { icon: 'subscriptions', text: 'Subscriptions' },
+      { icon: 'history', text: 'History' },
+      { icon: 'featured_play_list', text: 'Playlists' },
+      { icon: 'watch_later', text: 'Watch Later' }
+    ],
+    items2: [
+      { picture: 28, text: 'Joseph' },
+      { picture: 38, text: 'Apple' },
+      { picture: 48, text: 'Xbox Ahoy' },
+      { picture: 58, text: 'Nokia' },
+      { picture: 78, text: 'MKBHD' }
+    ]
+  }),
+  props: {
+    source: String
   }
+}
 </script>
+
+<style type="text/css">
+  .main-content {
+    overflow: hidden;
+  }
+</style>
