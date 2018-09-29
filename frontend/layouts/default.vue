@@ -1,6 +1,6 @@
 <template>
 <v-app
-  dark
+  
   id="inspire"
 >
   <v-navigation-drawer
@@ -53,7 +53,7 @@
     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     <v-icon class="mx-3">fa-youtube</v-icon>
     <v-toolbar-title class="mr-5 align-center">
-      <span class="title">Youtube</span>
+      <span class="title">Summer</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-layout row align-center style="max-width: 650px">
@@ -68,7 +68,7 @@
     </v-layout>
   </v-toolbar>
   <v-content class="main-content">
-    <v-container fill-height pa-0>
+    <v-container fill-height pa-0 ma-0 style="max-width: 100%">
       <nuxt />
     </v-container>
   </v-content>

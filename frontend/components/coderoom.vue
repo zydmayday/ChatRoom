@@ -1,14 +1,14 @@
 <!-- chatroom的内容发送框 -->
 <template>
       <v-card height="100%">
-      <v-toolbar dark
-        color="indigo">
-        <v-toolbar-title>CODE</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>search</v-icon>
-        </v-btn>
-      </v-toolbar>
+        <v-toolbar dark
+          color="indigo">
+          <v-toolbar-title>CODE</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
 
         <v-card-text>
           <p>123</p>

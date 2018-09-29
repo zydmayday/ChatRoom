@@ -6,6 +6,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/*
+ * @SpringBootApplication equals to the 3 annotations below
+ * @EnableAutoConfiguration
+ * @ComponentScan
+ * @Configuration
+ */
 @SpringBootApplication(scanBasePackages="com.summer")
 public class Application {
 	
@@ -20,6 +26,11 @@ public class Application {
     }
 	
     public static void main(String[] args) {
+    	/*
+    	 * SpringApplication will create an appropriate ApplicationContext instance
+    	 * and refresh the application context, loading all singleton beans.
+    	 * ApplicationContext will register @Configuration in other package but I don't know how.
+    	 */
         SpringApplication.run(Application.class, args);
     }
 }

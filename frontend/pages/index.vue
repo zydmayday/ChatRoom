@@ -1,9 +1,9 @@
 <template>
-    <v-layout row>
-      <v-flex xs8>
+    <v-layout row ma-0>
+      <v-flex xs7>
         <coderoom></coderoom>
       </v-flex>
-      <v-flex xs4>
+      <v-flex xs5>
         <chatroom></chatroom>
       </v-flex>
     </v-layout>

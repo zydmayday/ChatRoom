@@ -1,4 +1,3 @@
-
 module.exports = {
   /*
   ** Headers of the page
@@ -18,6 +17,9 @@ module.exports = {
   plugins: ['~/plugins/vuetify.js'],
   css: [
     '~/assets/style/app.styl'
+  ],
+  modules: [
+    'bootstrap-vue/nuxt',
   ],
   /*
   ** Customize the progress bar color
