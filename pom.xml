@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.summer</groupId>
-	<artifactId>nuxt-spring-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>ptf-eureka</artifactId>
+	<version>0.0.1</version>
 	<modules>
 		<module>frontend</module>
 		<module>backend</module>

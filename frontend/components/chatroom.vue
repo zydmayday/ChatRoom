@@ -2,12 +2,7 @@
 <template>
   <v-layout column fill-height>
     <div class="chat">
-      <div class="chat-title">
-        <h1>Summer</h1>
-        <h2>Chatroom</h2>
-        <!-- <figure class="avatar">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure> -->
-      </div>
+      <chatroom-title></chatroom-title>
       <div class="messages">
         <div class="messages-content"></div>
       </div>
@@ -24,12 +19,16 @@
   import Stomp from 'webstomp-client'
   import { mapMutations } from 'vuex'
   import { mapFields } from 'vuex-map-fields'
+  import ChatTitle from './chatroom-title.vue'
 
   export default {
     computed: {
       ...mapFields('chat', [
         'sendMessage'
       ])
+    },
+    components: {
+      'chatroom-title': ChatTitle
     },
     methods: {
       ...mapMutations({

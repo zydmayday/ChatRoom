@@ -1,7 +1,10 @@
 server:
   port: 5678
 # servlet.contextPath: /summer
-#spring:
+spring:
+  thymeleaf:
+    prefix: classpath:/
+    suffix: .html
 #  profiles: local,default
 #datasource:
 #  sampleapp:
@@ -31,3 +34,4 @@ server:
 #      show_sql: true
 #      format_sql: true
 #      dialect: org.hibernate.dialect.MySQLDialect
+
