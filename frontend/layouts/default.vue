@@ -3,11 +3,9 @@
 
   id="inspire"
 >
-  <v-navigation-drawer
-    fixed
-    clipped
+  <v-navigation-drawer fixed clipped app
     v-model="drawer"
-    app
+    :width="200"
   >
     <v-list dense>
       <v-list-tile
