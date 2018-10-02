@@ -1,6 +1,6 @@
 <template>
 <v-app
-  
+
   id="inspire"
 >
   <v-navigation-drawer
@@ -10,7 +10,12 @@
     app
   >
     <v-list dense>
-      <v-list-tile v-for="item in items" :key="item.text" @click="">
+      <v-list-tile
+        v-for="item in items"
+        :key="item.text"
+        @click=""
+        :to="item.url"
+      >
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-action>
@@ -20,15 +25,6 @@
           </v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-subheader class="mt-3 grey--text text--darken-1">SUBSCRIPTIONS</v-subheader>
-      <v-list>
-        <v-list-tile v-for="item in items2" :key="item.text" avatar @click="">
-          <v-list-tile-avatar>
-            <img :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`" alt="">
-          </v-list-tile-avatar>
-          <v-list-tile-title v-text="item.text"></v-list-tile-title>
-        </v-list-tile>
-      </v-list>
       <v-list-tile class="mt-3" @click="">
         <v-list-tile-action>
           <v-icon color="grey darken-1">add_circle_outline</v-icon>
@@ -80,11 +76,8 @@ export default {
   data: () => ({
     drawer: true,
     items: [
-      { icon: 'trending_up', text: 'Most Popular' },
-      { icon: 'subscriptions', text: 'Subscriptions' },
-      { icon: 'history', text: 'History' },
-      { icon: 'featured_play_list', text: 'Playlists' },
-      { icon: 'watch_later', text: 'Watch Later' }
+      { icon: 'trending_up', text: 'Main Page', url: '/' },
+      { icon: 'trending_up', text: 'PTF Page', url: '/ptf' }
     ],
     items2: [
       { picture: 28, text: 'Joseph' },

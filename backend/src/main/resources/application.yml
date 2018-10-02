@@ -1,10 +1,10 @@
 server:
   port: 5678
 # servlet.contextPath: /summer
-spring:
-  thymeleaf:
-    prefix: classpath:/
-    suffix: .html
+#spring:
+#  thymeleaf:
+#    prefix: classpath:/
+#    suffix: .html
 #  profiles: local,default
 #datasource:
 #  sampleapp:
